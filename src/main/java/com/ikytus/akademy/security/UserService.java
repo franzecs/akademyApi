@@ -48,9 +48,7 @@ public class UserService {
 	}
 	
 	public User findById(String id) {
-		/*Optional<User> user = userRepository.findById(id);
-		return user.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
-		*/
+		
 		return userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	
