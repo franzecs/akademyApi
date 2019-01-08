@@ -48,7 +48,7 @@ public class Instantiation implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		/*SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 
 		userRepository.deleteAll();
@@ -128,6 +128,6 @@ public class Instantiation implements CommandLineRunner {
 		aluno1.getTurmas().addAll(Arrays.asList(t1, t2));
 
 		userRepository.saveAll(Arrays.asList(aluno1));
-
+*/
 	}
 }

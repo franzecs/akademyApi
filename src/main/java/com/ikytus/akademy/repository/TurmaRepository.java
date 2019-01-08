@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ikytus.akademy.domain.Turma;
+import com.ikytus.akademy.domain.enums.DiaEnum;
 
 @Repository
 public interface TurmaRepository extends MongoRepository<Turma, String> {
@@ -19,5 +20,7 @@ public interface TurmaRepository extends MongoRepository<Turma, String> {
 	Page<Turma> findByInstrutorIdOrderByDia (Pageable pages, String instrutorId);
 	
 	List<Turma> findByInstrutorIdOrderByDia (String instrutorId);
+	
+	List<Turma> findByDia(DiaEnum dia);
 	
 }

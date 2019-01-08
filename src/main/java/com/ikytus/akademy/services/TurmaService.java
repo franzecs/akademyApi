@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.ikytus.akademy.domain.Turma;
 import com.ikytus.akademy.domain.User;
+import com.ikytus.akademy.domain.enums.DiaEnum;
 import com.ikytus.akademy.repository.TurmaRepository;
 import com.ikytus.akademy.repository.UserRepository;
 import com.ikytus.akademy.services.exception.ObjectNotFoundException;
@@ -52,6 +53,10 @@ public class TurmaService {
 		}
 
 		return turmas;
+	}
+	
+	public List<Turma> findByDia(DiaEnum dia){
+		return turmaRepository.findByDia(dia);
 	}
 
 	public List<Turma> listByEmpresa(String empresaId) {

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ikytus.akademy.domain.Turma;
+import com.ikytus.akademy.domain.enums.DiaEnum;
 import com.ikytus.akademy.domain.models.Response;
 import com.ikytus.akademy.security.UserService;
 import com.ikytus.akademy.services.TurmaService;
@@ -101,5 +102,10 @@ public class TurmaResource {
 		List<Turma> turmas = service.findListByInstrutor(instrutorId);
 		response.setData(turmas);
 		return ResponseEntity.ok(response);
+	}
+	@GetMapping("/dia/{dia}")
+	public ResponseEntity<List<Turma>> findByDia(@PathVariable("dia") DiaEnum dia){
+		
+		return ResponseEntity.ok(service.findByDia(dia));
 	}
 }
