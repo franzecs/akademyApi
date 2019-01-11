@@ -77,7 +77,8 @@ public class UserResource {
 		User user = service.findByEmail(email);
 		if (user == null) {
 			response.getErrors().add("Register not found id:" + email);
-			return ResponseEntity.badRequest().body(response);
+			response.setData(new User());
+			return ResponseEntity.ok(response);
 		}
 		response.setData(user);
 		return ResponseEntity.ok(response);
