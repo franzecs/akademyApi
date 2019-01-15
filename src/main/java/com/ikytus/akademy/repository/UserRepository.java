@@ -14,7 +14,9 @@ public interface UserRepository extends MongoRepository<User, String> {
 	
 	User findByEmail(String email);
 	
-	Page<User> findBytipoUserAndEmpresaId(Pageable pages, String tipo, String empresaId);
+	Page<User> findBytipoUserAndEmpresaIdOrderByNome(Pageable pages, String tipo, String empresaId);
+	
+	Page<User> findBytipoUserAndEmpresaIdAndNomeContainingIgnoreCase(Pageable pages, String tipo, String empresaId,String nome);
 	
 	List<User> findBytipoUserAndEmpresaId(String tipo, String empresaId);
 }

@@ -60,9 +60,16 @@ public class TurmaService {
 	}
 
 	public List<Turma> listByEmpresa(String empresaId) {
-		return this.turmaRepository.findByEmpresaIdOrderByDia(empresaId);
+		return this.turmaRepository.findByEmpresaIdOrderByDiaAscHorarioAsc(empresaId);
 	}
-
+	
+	public List<Turma> listByEmpresaDia(String empresaId, DiaEnum dia){
+		System.out.println(dia);
+		System.out.println(empresaId);
+		
+		return this.turmaRepository.findByEmpresaIdAndDiaOrderByHorarioAsc(empresaId, dia);
+	}
+	
 	public Turma findById(String id) {
 		Optional<Turma> turma = turmaRepository.findById(id);
 

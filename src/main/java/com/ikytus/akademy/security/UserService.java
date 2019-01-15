@@ -54,8 +54,14 @@ public class UserService {
 	
 	public Page<User> findByTipoAndEmpresa(int page, int count, String tipo, String empresaId) {
 		Pageable pages = PageRequest.of(page, count);
-		return userRepository.findBytipoUserAndEmpresaId(pages,tipo, empresaId);
+		return userRepository.findBytipoUserAndEmpresaIdOrderByNome(pages,tipo, empresaId);
 	}
+	
+	public Page<User> findByTipoAndEmpresaNome(int page, int count, String tipo, String empresaId, String nome) {
+		Pageable pages = PageRequest.of(page, count);
+		return userRepository.findBytipoUserAndEmpresaIdAndNomeContainingIgnoreCase(pages,tipo, empresaId, nome);
+	}
+	
 		
 	public List<User> findByTipoAndEmpresa(String tipo, String empresaId) {
 		return userRepository.findBytipoUserAndEmpresaId(tipo, empresaId);
@@ -76,6 +82,7 @@ public class UserService {
 	}
 	
 	public User createOrUpdate (User user) {
+		user.setNome(user.getNome().toUpperCase());
 		return userRepository.save(user);
 	}
 						

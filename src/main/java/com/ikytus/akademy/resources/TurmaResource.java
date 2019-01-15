@@ -69,7 +69,16 @@ public class TurmaResource {
 		response.setData(turmas);
 		return ResponseEntity.ok(response);
     }
-		
+	
+	@GetMapping("/horario/{dia}")
+    public  ResponseEntity<Response<List<Turma>>> listAllByEmpresaDia(HttpServletRequest request, @PathVariable("dia") DiaEnum dia) {
+		Response<List<Turma>> response = new Response<List<Turma>>();
+		System.out.println(dia);
+		List<Turma> turmas = service.listByEmpresaDia(userService.userFromRequest(request).getEmpresa().getId(),dia);
+		response.setData(turmas);
+		return ResponseEntity.ok(response);
+    }
+				
 	@GetMapping(value="{id}")
 	public ResponseEntity<Response<Turma>> findById(@PathVariable("id") String id) {
 		Response<Turma> response = new Response<Turma>();

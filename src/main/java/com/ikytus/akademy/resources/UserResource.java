@@ -121,6 +121,13 @@ public class UserResource {
 		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 
 		user.setDataNascimento(sdf.parse(user.getDtr()));
+		
+		User userdb = service.findById(id);
+		
+		if(userdb.getSenha() != user.getSenha()) {
+			
+		}
+		
 		user.setId(id);
 		User userPersistend = service.createOrUpdate(user);
 		
@@ -180,6 +187,18 @@ public class UserResource {
 		
 		Response<Page<User>> response = new Response<Page<User>>();
 		Page<User> users = service.findByTipoAndEmpresa(page, count, tipo, service.userFromRequest(request).getEmpresa().getId());
+		response.setData(users);
+		
+		return ResponseEntity.ok().body(response);
+	}
+	
+	@GetMapping("/search/{page}/{count}/{tipo}/{nome}")
+	public ResponseEntity<Response<Page<User>>> findByTipoUserAndEmpresaIdNome(HttpServletRequest request,
+			@PathVariable("page") int page, @PathVariable("count") int count,
+			@PathVariable("tipo") String tipo, @PathVariable("nome") String nome) {
+		
+		Response<Page<User>> response = new Response<Page<User>>();
+		Page<User> users = service.findByTipoAndEmpresaNome(page, count, tipo, service.userFromRequest(request).getEmpresa().getId(), nome);
 		response.setData(users);
 		
 		return ResponseEntity.ok().body(response);
