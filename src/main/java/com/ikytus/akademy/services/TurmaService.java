@@ -64,9 +64,6 @@ public class TurmaService {
 	}
 	
 	public List<Turma> listByEmpresaDia(String empresaId, DiaEnum dia){
-		System.out.println(dia);
-		System.out.println(empresaId);
-		
 		return this.turmaRepository.findByEmpresaIdAndDiaOrderByHorarioAsc(empresaId, dia);
 	}
 	
@@ -77,6 +74,7 @@ public class TurmaService {
 
 		for (User a : alunos) {
 			for (Turma t : a.getTurmas()) {
+				
 				if (t.getId().equals(id)) {
 					turma.get().getAlunos().addAll(Arrays.asList(a));
 				}
