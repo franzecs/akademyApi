@@ -13,15 +13,15 @@ import com.ikytus.akademy.domain.enums.DiaEnum;
 @Repository
 public interface TurmaRepository extends MongoRepository<Turma, String> {
 			
-	Page<Turma> findByEmpresaIdOrderByDia (Pageable pages, String empresaId);
+	Page<Turma> findByEmpresaIdOrderByDiaAscHorarioAsc (Pageable pages, String empresaId);
 	
 	List<Turma> findByEmpresaIdOrderByDiaAscHorarioAsc (String empresaId);
 	
 	List<Turma> findByEmpresaIdAndDiaOrderByHorarioAsc(String empresaId, DiaEnum dia);
 	
-	Page<Turma> findByInstrutorIdOrderByDia (Pageable pages, String instrutorId);
+	Page<Turma> findByInstrutorIdOrderByDiaAscHorarioAsc (Pageable pages, String instrutorId);
 	
-	List<Turma> findByInstrutorIdOrderByDia (String instrutorId);
+	List<Turma> findByInstrutorIdOrderByDiaAscHorarioAsc (String instrutorId);
 	
 	List<Turma> findByDia(DiaEnum dia);
 	

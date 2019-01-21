@@ -31,15 +31,37 @@ public class TurmaService {
 	}
 
 	public Page<Turma> findByEmpresa(int page, int count, String empresaId) {
-		return this.turmaRepository.findByEmpresaIdOrderByDia(this.pages(page, count), empresaId);
+		Page<Turma> turmas = this.turmaRepository.findByEmpresaIdOrderByDiaAscHorarioAsc(this.pages(page, count), empresaId);
+		List<User> alunos = userRepository.findAll();
+		for (Turma t : turmas) {
+			for (User a : alunos) {
+				for (Turma ta : a.getTurmas()) {
+					if (ta.getId().equals(t.getId())) {
+						t.getAlunos().addAll(Arrays.asList(a));
+					}
+				}
+			}
+		}
+		return turmas;
 	}
 
 	public Page<Turma> findByInstrutor(int page, int count, String instrutorId) {
-		return this.turmaRepository.findByInstrutorIdOrderByDia(this.pages(page, count), instrutorId);
+		Page<Turma> turmas = this.turmaRepository.findByInstrutorIdOrderByDiaAscHorarioAsc(this.pages(page, count), instrutorId);
+		List<User> alunos = userRepository.findAll();
+		for (Turma t : turmas) {
+			for (User a : alunos) {
+				for (Turma ta : a.getTurmas()) {
+					if (ta.getId().equals(t.getId())) {
+						t.getAlunos().addAll(Arrays.asList(a));
+					}
+				}
+			}
+		}
+		return turmas;
 	}
 
 	public List<Turma> findListByInstrutor(String instrutorId) {
-		List<Turma> turmas = this.turmaRepository.findByInstrutorIdOrderByDia(instrutorId);
+		List<Turma> turmas = this.turmaRepository.findByInstrutorIdOrderByDiaAscHorarioAsc(instrutorId);
 
 		List<User> alunos = userRepository.findAll();
 		for (Turma t : turmas) {
