@@ -16,6 +16,8 @@ public interface UserRepository extends MongoRepository<User, String> {
 	
 	Page<User> findBytipoUserAndEmpresaIdOrderByNome(Pageable pages, String tipo, String empresaId);
 	
+	Page<User> findBytipoUserAndEmpresaIdAndAtivoAndNomeContainingIgnoreCaseOrderByNome(Pageable pages, String tipo, String empresaId, boolean ativo, String nome);
+	
 	Page<User> findBytipoUserAndEmpresaIdAndNomeContainingIgnoreCase(Pageable pages, String tipo, String empresaId,String nome);
 	
 	List<User> findBytipoUserAndEmpresaId(String tipo, String empresaId);

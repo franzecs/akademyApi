@@ -81,8 +81,19 @@ public class TurmaService {
 		return turmaRepository.findByDia(dia);
 	}
 
-	public List<Turma> listByEmpresa(String empresaId) {
-		return this.turmaRepository.findByEmpresaIdOrderByDiaAscHorarioAsc(empresaId);
+	public List<Turma> listByEmpresa(String empresaId) {		
+		List<Turma> turmas = this.turmaRepository.findByEmpresaIdOrderByDiaAscHorarioAsc(empresaId);
+		List<User> alunos = userRepository.findAll();
+		for (Turma t : turmas) {
+			for (User a : alunos) {
+				for (Turma ta : a.getTurmas()) {
+					if (ta.getId().equals(t.getId())) {
+						t.getAlunos().addAll(Arrays.asList(a));
+					}
+				}
+			}
+		}
+		return turmas;
 	}
 	
 	public List<Turma> listByEmpresaDia(String empresaId, DiaEnum dia){

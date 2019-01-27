@@ -124,8 +124,8 @@ public class UserResource {
 		
 		User userdb = service.findById(id);
 		
-		if(userdb.getSenha() != user.getSenha()) {
-			
+		if(!userdb.getSenha().equals(user.getSenha())) {
+			user.setSenha(passwordEncoder.encode(user.getSenha()));
 		}
 		
 		user.setId(id);
@@ -187,6 +187,19 @@ public class UserResource {
 		
 		Response<Page<User>> response = new Response<Page<User>>();
 		Page<User> users = service.findByTipoAndEmpresa(page, count, tipo, service.userFromRequest(request).getEmpresa().getId());
+		response.setData(users);
+		
+		return ResponseEntity.ok().body(response);
+	}
+	
+	@GetMapping("/search/alunos/{page}/{count}/{tipo}/{ativo}/{nome}")
+	public ResponseEntity<Response<Page<User>>> findByTipoUserAndEmpresaIdAtivo(HttpServletRequest request,
+			@PathVariable("page") int page, @PathVariable("count") int count,
+			@PathVariable("tipo") String tipo, @PathVariable("ativo") boolean ativo,
+			@PathVariable("nome") String nome){
+		
+		Response<Page<User>> response = new Response<Page<User>>();
+		Page<User> users = service.findByTipoAndEmpresaAtivoNome(page, count, tipo, service.userFromRequest(request).getEmpresa().getId(), ativo, nome);
 		response.setData(users);
 		
 		return ResponseEntity.ok().body(response);
