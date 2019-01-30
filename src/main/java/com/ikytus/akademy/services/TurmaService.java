@@ -77,6 +77,8 @@ public class TurmaService {
 		return turmas;
 	}
 	
+	
+	
 	public List<Turma> findByDia(DiaEnum dia){
 		return turmaRepository.findByDia(dia);
 	}
@@ -95,6 +97,12 @@ public class TurmaService {
 		}
 		return turmas;
 	}
+	
+	public List<Turma> listTurmasEmpresa(String empresaId) {		
+		List<Turma> turmas = this.turmaRepository.findByEmpresaIdOrderByDiaAscHorarioAsc(empresaId);
+		return turmas;
+	}
+	
 	
 	public List<Turma> listByEmpresaDia(String empresaId, DiaEnum dia){
 		return this.turmaRepository.findByEmpresaIdAndDiaOrderByHorarioAsc(empresaId, dia);

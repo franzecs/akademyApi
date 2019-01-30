@@ -27,7 +27,7 @@ import com.ikytus.akademy.repository.PlanoRepository;
 import com.ikytus.akademy.repository.TurmaRepository;
 import com.ikytus.akademy.repository.UserRepository;
 
-@Configuration
+//@Configuration
 public class Instantiation implements CommandLineRunner {
 
 	@Autowired

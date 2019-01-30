@@ -70,6 +70,14 @@ public class TurmaResource {
 		return ResponseEntity.ok(response);
     }
 	
+	@GetMapping("/ltonly")
+    public  ResponseEntity<Response<List<Turma>>> listTurmasByEmpresa(HttpServletRequest request) {
+		Response<List<Turma>> response = new Response<List<Turma>>();
+		List<Turma> turmas = service.listTurmasEmpresa(userService.userFromRequest(request).getEmpresa().getId());
+		response.setData(turmas);
+		return ResponseEntity.ok(response);
+    }
+	
 	@GetMapping("/horario/{dia}")
     public  ResponseEntity<Response<List<Turma>>> listAllByEmpresaDia(HttpServletRequest request, @PathVariable("dia") DiaEnum dia) {
 		Response<List<Turma>> response = new Response<List<Turma>>();
