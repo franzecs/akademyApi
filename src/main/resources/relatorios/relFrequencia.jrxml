@@ -628,9 +628,9 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Footlight MT Light" size="19" isBold="true" isItalic="true"/>
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Frequência"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Frequência " ]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

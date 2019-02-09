@@ -28,7 +28,7 @@
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#DBD9D9" uuid="98902072-42b9-41c3-b6bc-bfc7ec80aef8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Footlight MT Light" size="20" isBold="true" isItalic="true"/>
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Relatório de Planos]]></text>
 			</staticText>
