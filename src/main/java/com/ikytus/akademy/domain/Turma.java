@@ -26,7 +26,6 @@ public class Turma implements Serializable{
 	private InstrutorDTO instrutor;
 
 	@DBRef(db="akademy",lazy=true)
-	//@JsonIgnore
 	private List<User> alunos = new ArrayList<>();
 			
 	public Turma() {}

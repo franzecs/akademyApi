@@ -19,6 +19,8 @@ public interface TurmaRepository extends MongoRepository<Turma, String> {
 	
 	List<Turma> findByEmpresaIdAndDiaOrderByHorarioAsc(String empresaId, DiaEnum dia);
 	
+	List<Turma> findByEmpresaIdOrderByInstrutorAscHorarioAsc (String empresaId);
+	
 	Page<Turma> findByInstrutorIdOrderByDiaAscHorarioAsc (Pageable pages, String instrutorId);
 	
 	List<Turma> findByInstrutorIdOrderByDiaAscHorarioAsc (String instrutorId);
