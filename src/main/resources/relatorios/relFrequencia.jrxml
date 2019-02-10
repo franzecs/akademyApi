@@ -225,6 +225,10 @@
 	<parameter name="30" class="java.lang.Integer"/>
 	<parameter name="31" class="java.lang.Integer"/>
 	<parameter name="semana" class="java.lang.Integer"/>
+	<parameter name="mes" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Fevereiro"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="s1" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -630,7 +634,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="14" isBold="true" isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Frequência " ]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Frequência" +" - " + $P{mes}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import com.ikytus.akademy.domain.Plano;
 import com.ikytus.akademy.domain.Turma;
 import com.ikytus.akademy.domain.User;
+import com.ikytus.akademy.domain.enums.DiaEnum;
 import com.ikytus.akademy.domain.models.Dia;
 import com.ikytus.akademy.domain.models.Frequencia;
 import com.ikytus.akademy.security.UserService;
@@ -43,6 +44,7 @@ public class RelatorioService {
 	private TurmaService turmaService;
 	
 	private List<Dia> dias = new ArrayList<>();
+	private String mesAtual;
 	
 
 	public byte[] relPlanos(HttpServletRequest request) throws Exception {
@@ -76,6 +78,7 @@ public class RelatorioService {
 		
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+		parametros.put("mes", mesAtual);
 		for(Dia dia: dias) {
 			parametros.put(dia.getDiaStr(), dia.getSem());
 		}
@@ -101,6 +104,8 @@ public class RelatorioService {
 		int mes = cal.get(Calendar.MONTH)+1;
 		int ano = cal.get(Calendar.YEAR);
 		
+		mesAtual = geraMes(mes);
+		
 		for (int i=1; i<32; i++) {
 			Date data = sdf.parse(i +"/" + mes +"/"+ano);
 			cal.setTime(data);
@@ -108,5 +113,46 @@ public class RelatorioService {
 			dias.addAll(Arrays.asList(dia));
 		}
 		
+	}
+	
+	private String geraMes(int mes) {
+		if(mes == 1) {
+			return "Janeiro";
+		}
+		if(mes == 2) {
+			return "Fevereiro";
+		}
+		if(mes == 3) {
+			return "Março";
+		}
+		if(mes == 4) {
+			return "Abril";
+		}
+		if(mes == 5) {
+			return "Maio";
+		}
+		if(mes == 6) {
+			return "Junho";
+		}
+		if(mes == 7) {
+			return "Julho";
+		}
+		if(mes == 8) {
+			return "Agosto";
+		}
+		if(mes == 9) {
+			return "Setembro";
+		}
+		if(mes == 10) {
+			return "Outubro";
+		}
+		if(mes == 11) {
+			return "Novembro";
+		}
+		if(mes == 12) {
+			return "Dezembro";
+		}else {
+			return "mês invalido";
+		}
 	}
 }
