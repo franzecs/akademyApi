@@ -111,7 +111,7 @@
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
 				<reportElement x="480" y="0" width="64" height="20" uuid="f5b669cc-6552-4065-b88b-98d7cc72b763">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="471f7c3a-e597-45dc-941b-85e011bfd8b3"/>
 				</reportElement>

@@ -21,7 +21,6 @@ import org.springframework.stereotype.Service;
 import com.ikytus.akademy.domain.Plano;
 import com.ikytus.akademy.domain.Turma;
 import com.ikytus.akademy.domain.User;
-import com.ikytus.akademy.domain.enums.DiaEnum;
 import com.ikytus.akademy.domain.models.Dia;
 import com.ikytus.akademy.domain.models.Frequencia;
 import com.ikytus.akademy.security.UserService;
@@ -45,6 +44,7 @@ public class RelatorioService {
 	
 	private List<Dia> dias = new ArrayList<>();
 	private String mesAtual;
+	private int anoAtual;
 	
 
 	public byte[] relPlanos(HttpServletRequest request) throws Exception {
@@ -79,8 +79,10 @@ public class RelatorioService {
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
 		parametros.put("mes", mesAtual);
+		parametros.put("ano", anoAtual);
 		for(Dia dia: dias) {
 			parametros.put(dia.getDiaStr(), dia.getSem());
+			parametros.put("S"+dia.getDiaStr(), dia.getDiaSemana());
 		}
 
 		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relFrequencia.jasper");
@@ -102,13 +104,14 @@ public class RelatorioService {
 		cal.setTime(new Date());
 		
 		int mes = cal.get(Calendar.MONTH)+1;
-		int ano = cal.get(Calendar.YEAR);
+		anoAtual = cal.get(Calendar.YEAR);
 		
 		mesAtual = geraMes(mes);
 		
 		for (int i=1; i<32; i++) {
-			Date data = sdf.parse(i +"/" + mes +"/"+ano);
-			cal.setTime(data);
+			cal.set(Calendar.DAY_OF_MONTH, i);
+			cal.set(Calendar.MONTH, mes-1);
+			cal.set(Calendar.YEAR, anoAtual);
 			Dia dia = new Dia(i,cal.get(Calendar.DAY_OF_WEEK));
 			dias.addAll(Arrays.asList(dia));
 		}
