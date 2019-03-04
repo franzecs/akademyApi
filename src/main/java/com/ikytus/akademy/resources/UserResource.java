@@ -235,4 +235,12 @@ public class UserResource {
 		return ResponseEntity.ok().body(response);
 	}
 	
+	@GetMapping("/alunosAtivos")
+	public ResponseEntity<Response<List<User>>> listByAtivoEmpresa(HttpServletRequest request){
+		Response<List<User>> response = new Response<List<User>>();
+		response.setData(service.findByAtivoandEmpresa(service.userFromRequest(request).getEmpresa().getId()));
+		
+		return ResponseEntity.ok().body(response);
+	}
+	
 }

@@ -72,6 +72,10 @@ public class UserService {
 		return userRepository.findBytipoUserAndEmpresaId(tipo, empresaId);
 	}
 	
+	public List<User> findByAtivoandEmpresa(String empresaId){
+		return userRepository.findBytipoUserAndEmpresaIdAndAtivo("Aluno", empresaId, true);
+	}
+	
 	public List<UserDTO> findByTipoAndInstrutor(String instrutorId, String empresaId) {	
 		List<User> alunosInstrutor = new ArrayList<>();
 		for(User u : this.findByTipoAndEmpresa("Aluno", empresaId)) {

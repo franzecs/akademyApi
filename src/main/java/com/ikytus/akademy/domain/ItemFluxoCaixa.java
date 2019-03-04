@@ -3,7 +3,11 @@ package com.ikytus.akademy.domain;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.ikytus.akademy.domain.enums.TipoItemFluxoCaixaEnum;
+import com.ikytus.akademy.dto.EmpresaDTO;
 
 @Document
 public class ItemFluxoCaixa implements Serializable{
@@ -11,21 +15,32 @@ public class ItemFluxoCaixa implements Serializable{
 
 	@Id
 	private String id;
-	private int mes;
-	private String descricao;
-	private Double valorEntrada;
-	private Double valorSaida;
 	
-		
+	@DBRef(lazy=false)
+	private EmpresaDTO empresa;
+	
+	@DBRef
+	private FluxoCaixa fluxoCaixa;
+	
+	private Integer tipo;
+	private int dia;
+	private String descricao;
+	private Double valor;
+	private String status;
+			
 	public ItemFluxoCaixa() {}
-		
-	public ItemFluxoCaixa(String id, int mes, String descricao, Double valorEntrada, Double valorSaida) {
+			
+	public ItemFluxoCaixa(String id, EmpresaDTO empresa, FluxoCaixa fluxoCaixa, TipoItemFluxoCaixaEnum tipo, int dia,
+			String descricao, Double valor, String status) {
 		super();
 		this.id = id;
-		this.mes = mes;
+		this.empresa = empresa;
+		this.fluxoCaixa = fluxoCaixa;
+		this.dia = dia;
+		this.tipo = (tipo==null)? null : tipo.getCod();
 		this.descricao = descricao;
-		this.valorEntrada = valorEntrada;
-		this.valorSaida = valorSaida;
+		this.valor = valor;
+		this.status = status;
 	}
 	
 	public String getId() {
@@ -36,12 +51,28 @@ public class ItemFluxoCaixa implements Serializable{
 		this.id = id;
 	}
 
-	public int getMes() {
-		return mes;
+	public FluxoCaixa getFluxoCaixa() {
+		return fluxoCaixa;
 	}
 
-	public void setMes(int mes) {
-		this.mes = mes;
+	public void setFluxoCaixa(FluxoCaixa fluxoCaixa) {
+		this.fluxoCaixa = fluxoCaixa;
+	}
+		
+	public int getDia() {
+		return dia;
+	}
+
+	public void setDia(int dia) {
+		this.dia = dia;
+	}
+
+	public TipoItemFluxoCaixaEnum getTipo() {
+		return TipoItemFluxoCaixaEnum.toEnum(tipo);
+	}
+
+	public void setTipo(TipoItemFluxoCaixaEnum tipo) {
+		this.tipo = tipo.getCod();
 	}
 
 	public String getDescricao() {
@@ -51,21 +82,30 @@ public class ItemFluxoCaixa implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	public Double getValorEntrada() {
-		return valorEntrada;
+	
+	public EmpresaDTO getEmpresa() {
+		return empresa;
 	}
 
-	public void setValorEntrada(Double valorEntrada) {
-		this.valorEntrada = valorEntrada;
+	public void setEmpresa(EmpresaDTO empresa) {
+		this.empresa = empresa;
 	}
 
-	public Double getValorSaida() {
-		return valorSaida;
+	
+	public Double getValor() {
+		return valor;
 	}
 
-	public void setValorSaida(Double valorSaida) {
-		this.valorSaida = valorSaida;
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override
