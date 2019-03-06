@@ -13,6 +13,8 @@ import com.ikytus.akademy.domain.ItemFluxoCaixa;
 public interface ItemFluxoCaixaRepository extends MongoRepository<ItemFluxoCaixa, String> {
 	
 	List<ItemFluxoCaixa> findByEmpresaIdOrderByDiaAsc(String empresaId);
+	
+	List<ItemFluxoCaixa> findByEmpresaIdAndTipoOrderByDescricaoAsc(String empresaId, Integer tipo);
 			
 	Page<ItemFluxoCaixa> findByEmpresaIdAndFluxoCaixaIdOrderByDiaAsc (Pageable pages, String empresaId, String fluxoCaixaId);
 	

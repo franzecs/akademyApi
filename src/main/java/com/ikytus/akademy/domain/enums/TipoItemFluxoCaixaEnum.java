@@ -2,7 +2,9 @@ package com.ikytus.akademy.domain.enums;
 
 public enum TipoItemFluxoCaixaEnum {
 	ENTRADA(1,"Entrada"),
-	SAIDA(2,"Saída");
+	SAIDA(2,"Saida"),
+	PAGAMENTOPROFESSOR(3,"Pagamento Professor"),
+	DESPESASFIXAS(4,"Despesas Fixas");
 	
 	private int cod;
 	private String descricao;

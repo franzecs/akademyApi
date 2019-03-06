@@ -24,7 +24,7 @@ public class FluxoCaixaService {
 
 	@Autowired
 	private ItemFluxoCaixaRepository itemRepository;
-	
+
 	public FluxoCaixa createOrUpdate(FluxoCaixa fluxo) {
 		return this.fluxoCaixaRepository.save(fluxo);
 	}
@@ -38,17 +38,14 @@ public class FluxoCaixaService {
 	}
 
 	public Page<FluxoCaixa> findByEmpresa(int page, int count, String empresaId, int ano) {
-
 		Page<FluxoCaixa> fluxos = this.fluxoCaixaRepository.findByEmpresaIdAndAnoOrderByMesAsc(this.pages(page, count),
 				empresaId, ano);
 
-		List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdOrderByDiaAsc(empresaId);
 		for (FluxoCaixa f : fluxos) {
-			for (ItemFluxoCaixa i : itens) {
-				if (i.getFluxoCaixa().getId().equals(f.getId())) {
-					f.getItens().addAll(Arrays.asList(i));
-				}
-			}
+
+			List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDiaAsc(empresaId,
+					f.getId());
+			f.getItens().addAll(itens);
 		}
 		return fluxos;
 	}

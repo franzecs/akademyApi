@@ -23,14 +23,14 @@ public class ItemFluxoCaixa implements Serializable{
 	private FluxoCaixa fluxoCaixa;
 	
 	private Integer tipo;
-	private int dia;
+	private String dia;
 	private String descricao;
 	private Double valor;
 	private String status;
 			
 	public ItemFluxoCaixa() {}
 			
-	public ItemFluxoCaixa(String id, EmpresaDTO empresa, FluxoCaixa fluxoCaixa, TipoItemFluxoCaixaEnum tipo, int dia,
+	public ItemFluxoCaixa(String id, EmpresaDTO empresa, FluxoCaixa fluxoCaixa, TipoItemFluxoCaixaEnum tipo, String dia,
 			String descricao, Double valor, String status) {
 		super();
 		this.id = id;
@@ -59,11 +59,11 @@ public class ItemFluxoCaixa implements Serializable{
 		this.fluxoCaixa = fluxoCaixa;
 	}
 		
-	public int getDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(int dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 

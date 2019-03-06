@@ -1,5 +1,6 @@
 package com.ikytus.akademy.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,10 @@ public class ItemFluxoCaixaService {
 	public void delete(String id, String empresaId) {
 		findById(id, empresaId);
 		itemFluxoCaixaRepository.deleteById(id);
+	}
+	
+	public List<ItemFluxoCaixa> listDespesasFixas(String empresaId){
+		return this.itemFluxoCaixaRepository.findByEmpresaIdAndTipoOrderByDescricaoAsc(empresaId, 4);
 	}
 
 	public Pageable pages(int page, int count) {
