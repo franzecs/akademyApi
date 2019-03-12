@@ -1,6 +1,5 @@
 package com.ikytus.akademy.services;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +31,7 @@ public class FluxoCaixaService {
 	public FluxoCaixa findById(String id, String empresaId) {
 		Optional<FluxoCaixa> fluxo = fluxoCaixaRepository.findById(id);
 
-		List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDiaAsc(empresaId, id);
+		List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDescricaoAsc(empresaId, id);
 		fluxo.get().getItens().addAll(itens);
 		return fluxo.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
@@ -41,12 +40,12 @@ public class FluxoCaixaService {
 		Page<FluxoCaixa> fluxos = this.fluxoCaixaRepository.findByEmpresaIdAndAnoOrderByMesAsc(this.pages(page, count),
 				empresaId, ano);
 
-		for (FluxoCaixa f : fluxos) {
+		/*for (FluxoCaixa f : fluxos) {
 
-			List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDiaAsc(empresaId,
+			List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDescricaoAsc(empresaId,
 					f.getId());
 			f.getItens().addAll(itens);
-		}
+		}*/
 		return fluxos;
 	}
 

@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ikytus.akademy.domain.FluxoCaixa;
+import com.ikytus.akademy.domain.ItemFluxoCaixa;
 import com.ikytus.akademy.domain.Plano;
 import com.ikytus.akademy.domain.Turma;
 import com.ikytus.akademy.domain.User;
@@ -42,6 +44,7 @@ public class RelatorioService {
 	@Autowired
 	private TurmaService turmaService;
 	
+		
 	private List<Dia> dias = new ArrayList<>();
 	private String mesAtual;
 	private int anoAtual;
@@ -89,6 +92,25 @@ public class RelatorioService {
 
 		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
 				new JRBeanCollectionDataSource(frequencias));
+
+		return JasperExportManager.exportReportToPdf(jasperPrint);
+	}
+	
+	public byte[] relFluxoCaixa(HttpServletRequest request, FluxoCaixa fluxo) throws Exception {
+
+		List<ItemFluxoCaixa> itens = fluxo.getItens();
+		
+		Map<String, Object> parametros = new HashMap<>();
+		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+		parametros.put("mes", geraMes(fluxo.getMes()));
+		parametros.put("ano", fluxo.getAno());
+		parametros.put("previsto", fluxo.getPrevisto());
+		parametros.put("realizado", fluxo.getExecutado());
+
+		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relFluxoCaixa.jasper");
+
+		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
+				new JRBeanCollectionDataSource(itens));
 
 		return JasperExportManager.exportReportToPdf(jasperPrint);
 	}

@@ -8,9 +8,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ikytus.akademy.domain.FluxoCaixa;
 import com.ikytus.akademy.services.RelatorioService;
 
 @RestController
@@ -46,6 +49,16 @@ public class RelatorioResource {
 	public ResponseEntity<byte[]> relAlunosFrequencia(HttpServletRequest request) throws Exception {
 		
 		byte[] rel = relatorioService.relFrequencia(request);
+				
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
+				.body(rel);
+	}
+	
+	@PostMapping("/fluxoCaixa")
+	public ResponseEntity<byte[]> relFluxoCaixa(HttpServletRequest request, @RequestBody FluxoCaixa fluxo) throws Exception {
+		
+		byte[] rel = relatorioService.relFluxoCaixa(request, fluxo);
 				
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
