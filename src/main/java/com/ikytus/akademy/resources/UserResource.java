@@ -219,9 +219,15 @@ public class UserResource {
 	
 	
 	@GetMapping("/search/{tipo}/empresa")
-	public ResponseEntity<List<User>> listByTipoUserAndEmpresaId(HttpServletRequest request,
+	public ResponseEntity<Response<List<User>>> listByTipoUserAndEmpresaId(HttpServletRequest request,
 			@PathVariable("tipo") String tipo){
-		return ResponseEntity.ok().body(service.findByTipoAndEmpresa(tipo, service.userFromRequest(request).getEmpresa().getId()));
+		
+		Response<List<User>> response = new Response<List<User>>();
+		List<User> alunos = service.findByTipoAndEmpresa(tipo, service.userFromRequest(request).getEmpresa().getId());
+		
+		response.setData(alunos);
+		
+		return ResponseEntity.ok().body(response);
 	}
 	
 	@GetMapping("/search/{instrutorId}")
