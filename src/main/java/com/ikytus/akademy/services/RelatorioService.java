@@ -65,7 +65,7 @@ public class RelatorioService {
 	}
 
 	public byte[] relFrequencia(HttpServletRequest request) throws Exception {
-
+		System.out.println(request.getParameter("ano"));
 		List<Frequencia> frequencias = new ArrayList<>();
 		List<User> instrutores = userService.findByTipoAndEmpresa("Instrutor", userService.userFromRequest(request).getEmpresa().getId());
 		
@@ -109,7 +109,7 @@ public class RelatorioService {
 			frequencias.addAll(freqTemp);
 		}
 				
-		geraDias();
+		geraDias(request);
 						
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
@@ -147,7 +147,7 @@ public class RelatorioService {
 		return JasperExportManager.exportReportToPdf(jasperPrint);
 	}
 
-	public void geraDias() throws ParseException {
+	public void geraDias(HttpServletRequest request) throws ParseException {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		sdf.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
@@ -158,12 +158,15 @@ public class RelatorioService {
 		int mes = cal.get(Calendar.MONTH) + 1;
 		anoAtual = cal.get(Calendar.YEAR);
 
-		mesAtual = geraMes(mes);
+		mesAtual = geraMes(Integer.parseInt(request.getParameter("mes")));
+		//mesAtual = geraMes(mes);
 
 		for (int i = 1; i < 32; i++) {
 			cal.set(Calendar.DAY_OF_MONTH, i);
-			cal.set(Calendar.MONTH, mes - 1);
-			cal.set(Calendar.YEAR, anoAtual);
+			cal.set(Calendar.MONTH, Integer.parseInt(request.getParameter("mes")) - 1);
+			//cal.set(Calendar.MONTH, mes - 1);
+			cal.set(Calendar.YEAR, Integer.parseInt(request.getParameter("ano")));
+			// cal.set(Calendar.YEAR, anoAtual);
 			Dia dia = new Dia(i, cal.get(Calendar.DAY_OF_WEEK));
 			dias.addAll(Arrays.asList(dia));
 		}
