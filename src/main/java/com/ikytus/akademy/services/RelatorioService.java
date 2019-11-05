@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -67,38 +68,40 @@ public class RelatorioService {
 	public byte[] relFrequencia(HttpServletRequest request) throws Exception {
 		System.out.println(request.getParameter("ano"));
 		List<Frequencia> frequencias = new ArrayList<>();
-		List<User> instrutores = userService.findByTipoAndEmpresa("Instrutor", userService.userFromRequest(request).getEmpresa().getId());
-		
+		List<User> instrutores = userService.findByTipoAndEmpresa("Instrutor",
+				userService.userFromRequest(request).getEmpresa().getId());
+
 		for (User I : instrutores) {
 			List<User> alunosInstrutor = new ArrayList<>();
 			List<Frequencia> freqTemp = new ArrayList<>();
-			for(User A : userService.findByTipoAndEmpresa("Aluno", I.getEmpresa().getId())) {
-				for(Turma t : A.getTurmas()) {
-					if(t.getInstrutor().getId().equals(I.getId())) {
-						if(!alunosInstrutor.contains(A)) {
+			for (User A : userService.findByTipoAndEmpresa("Aluno", I.getEmpresa().getId())) {
+				for (Turma t : A.getTurmas()) {
+					if (t.getInstrutor().getId().equals(I.getId())) {
+						if (!alunosInstrutor.contains(A)) {
 							alunosInstrutor.addAll(Arrays.asList(A));
 						}
 					}
 				}
 			}
-			
-			for(User aluno: alunosInstrutor) {
-				Frequencia f = new Frequencia(I.getNome(), null, null, null,null, aluno.getNome());
-				for(Turma turma: aluno.getTurmas()) {
-					if(turma.getInstrutor().getId().equals(I.getId())) {
-						if(f.getHorario()== null) {
+
+			for (User aluno : alunosInstrutor) {
+				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome());
+				for (Turma turma : aluno.getTurmas()) {
+					if (turma.getInstrutor().getId().equals(I.getId())) {
+						if (f.getHorario() == null) {
 							f.setHorario(turma.getHorario());
 							f.setSemana(turma.getDia());
-						}else {
-							if(f.getHorario().equals(turma.getHorario())) {
-								if(f.getSemana2()==null) {
+						} else {
+							if (f.getHorario().equals(turma.getHorario())) {
+								if (f.getSemana2() == null) {
 									f.setSemana2(turma.getDia());
-								}else {
+								} else {
 									f.setSemana3(turma.getDia());
 								}
-							}else {
-							  Frequencia f2 = new Frequencia(I.getNome(), turma.getHorario(), turma.getDia(), null,null, aluno.getNome());
-							  freqTemp.addAll(Arrays.asList(f2));
+							} else {
+								Frequencia f2 = new Frequencia(I.getNome(), turma.getHorario(), turma.getDia(), null,
+										null, aluno.getNome());
+								freqTemp.addAll(Arrays.asList(f2));
 							}
 						}
 					}
@@ -108,9 +111,9 @@ public class RelatorioService {
 			freqTemp.sort(Comparator.comparing(Frequencia::getHorario));
 			frequencias.addAll(freqTemp);
 		}
-				
+
 		geraDias(request);
-						
+
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
 		parametros.put("mes", mesAtual);
@@ -120,7 +123,84 @@ public class RelatorioService {
 			parametros.put("S" + dia.getDiaStr(), dia.getDiaSemana());
 		}
 
-		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relFrequencia.jasper");
+		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relFrequenciaV2.jasper");
+
+		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
+				new JRBeanCollectionDataSource(frequencias));
+
+		return JasperExportManager.exportReportToPdf(jasperPrint);
+	}
+
+	public byte[] relFrequenciaV2(HttpServletRequest request) throws Exception {
+		String empresaId = userService.userFromRequest(request).getEmpresa().getId();
+
+		List<Frequencia> frequencias = new ArrayList<>();
+		List<User> instrutores = userService.findByTipoAndEmpresa("Instrutor",
+				userService.userFromRequest(request).getEmpresa().getId());
+
+		for (User I : instrutores) {
+			List<User> alunosInstrutor = new ArrayList<>();
+			List<Frequencia> freqTemp = new ArrayList<>();
+			for (User A : userService.findByTipoAndEmpresa("Aluno", empresaId)) {
+				for (Turma t : A.getTurmas()) {
+					if (t.getInstrutor().getId().equals(I.getId())) {
+						if (!alunosInstrutor.contains(A)) {
+							alunosInstrutor.addAll(Arrays.asList(A));
+						}
+					}
+				}
+			}
+
+			for (User aluno : alunosInstrutor) {
+				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome());
+				for (Turma turma : aluno.getTurmas()) {
+					if (turma.getInstrutor().getId().equals(I.getId())) {
+						if (f.getHorario() == null) {
+							f.setHorario(turma.getHorario());
+							f.setSemana(turma.getDia());
+						} else {
+							if (f.getHorario().equals(turma.getHorario())) {
+								if (f.getSemana2() == null) {
+									f.setSemana2(turma.getDia());
+								} else {
+									f.setSemana3(turma.getDia());
+								}
+							} else {
+								Frequencia f2 = new Frequencia(I.getNome(), turma.getHorario(), turma.getDia(), null,
+										null, aluno.getNome());
+								freqTemp.addAll(Arrays.asList(f2));
+							}
+						}
+					}
+				}
+				freqTemp.addAll(Arrays.asList(f));
+			}
+			
+			freqTemp.sort(Comparator.comparing(Frequencia::getHorario));
+			frequencias.addAll(freqTemp);
+		}
+		
+		frequencias.sort(Comparator.comparing(Frequencia::getHorario));
+		
+		for(Frequencia freq : frequencias) {
+			System.out.println(freq.toString());
+		}
+		
+		
+
+
+		geraDias(request);
+
+		Map<String, Object> parametros = new HashMap<>();
+		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+		parametros.put("mes", mesAtual);
+		parametros.put("ano", anoAtual);
+		for (Dia dia : dias) {
+			parametros.put(dia.getDiaStr(), dia.getSem());
+			parametros.put("S" + dia.getDiaStr(), dia.getDiaSemana());
+		}
+
+		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relFrequenciaV2.jasper");
 
 		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
 				new JRBeanCollectionDataSource(frequencias));
@@ -159,12 +239,12 @@ public class RelatorioService {
 		anoAtual = cal.get(Calendar.YEAR);
 
 		mesAtual = geraMes(Integer.parseInt(request.getParameter("mes")));
-		//mesAtual = geraMes(mes);
+		// mesAtual = geraMes(mes);
 
 		for (int i = 1; i < 32; i++) {
 			cal.set(Calendar.DAY_OF_MONTH, i);
 			cal.set(Calendar.MONTH, Integer.parseInt(request.getParameter("mes")) - 1);
-			//cal.set(Calendar.MONTH, mes - 1);
+			// cal.set(Calendar.MONTH, mes - 1);
 			cal.set(Calendar.YEAR, Integer.parseInt(request.getParameter("ano")));
 			// cal.set(Calendar.YEAR, anoAtual);
 			Dia dia = new Dia(i, cal.get(Calendar.DAY_OF_WEEK));
