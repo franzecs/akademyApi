@@ -48,7 +48,7 @@ public class RelatorioResource {
 	@GetMapping("/alunos/frequencia")
 	public ResponseEntity<byte[]> relAlunosFrequencia(HttpServletRequest request) throws Exception {
 		
-		byte[] rel = relatorioService.relFrequencia(request);
+		byte[] rel = relatorioService.relFrequenciaV2(request);
 				
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
