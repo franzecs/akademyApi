@@ -22,25 +22,25 @@ public class Dia implements Serializable{
 	
 	private String stringDiaSemana(int dia) {
 		if(dia == 1) {
-			return "Dom";
+			return "D";
 		}
 		if(dia == 2) {
-			return "Seg";
+			return "S";
 		}
 		if(dia == 3) {
-			return "Ter";
+			return "T";
 		}
 		if(dia == 4) {
-			return "Qua";
+			return "Q";
 		}
 		if(dia == 5) {
-			return "Qui";
+			return "Q";
 		}
 		if(dia == 6) {
-			return "Sex";
+			return "S";
 		}
 		if(dia == 7) {
-			return "Sab";
+			return "S";
 		}else {
 			return "I";
 		}
