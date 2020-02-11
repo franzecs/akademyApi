@@ -214,6 +214,8 @@ public class RelatorioService {
 		for( ItemFluxoCaixa i : itens) {
 			i.setDescricao(i.getDescricao().substring(13));
 		}
+		
+		itens.sort(Comparator.comparing(ItemFluxoCaixa::getDescricao));
 
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
