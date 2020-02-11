@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -43,8 +42,8 @@ public class RelatorioService {
 	@Autowired
 	private PlanoService planoService;
 
-	@Autowired
-	private TurmaService turmaService;
+	// @Autowired
+	//private TurmaService turmaService;
 
 	private List<Dia> dias = new ArrayList<>();
 	private String mesAtual;
@@ -182,9 +181,9 @@ public class RelatorioService {
 		
 		frequencias.sort(Comparator.comparing(Frequencia::getHorario));
 		
-		for(Frequencia freq : frequencias) {
-			System.out.println(freq.toString());
-		}
+		//for(Frequencia freq : frequencias) {
+		//	System.out.println(freq.toString());
+		//}
 		
 		
 
@@ -211,6 +210,10 @@ public class RelatorioService {
 	public byte[] relFluxoCaixa(HttpServletRequest request, FluxoCaixa fluxo) throws Exception {
 
 		List<ItemFluxoCaixa> itens = fluxo.getItens();
+		
+		for( ItemFluxoCaixa i : itens) {
+			i.setDescricao(i.getDescricao().substring(13));
+		}
 
 		Map<String, Object> parametros = new HashMap<>();
 		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
