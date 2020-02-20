@@ -1,5 +1,7 @@
 package com.ikytus.akademy.resources;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ikytus.akademy.domain.FluxoCaixa;
+import com.ikytus.akademy.domain.models.HorarioRel;
 import com.ikytus.akademy.services.RelatorioService;
 
 @RestController
@@ -59,6 +62,16 @@ public class RelatorioResource {
 	public ResponseEntity<byte[]> relFluxoCaixa(HttpServletRequest request, @RequestBody FluxoCaixa fluxo) throws Exception {
 		
 		byte[] rel = relatorioService.relFluxoCaixa(request, fluxo);
+				
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
+				.body(rel);
+	}
+	
+	@PostMapping("/horarioSemana")
+	public ResponseEntity<byte[]> relHorarioSemana(HttpServletRequest request, @RequestBody List<HorarioRel> horarioRel) throws Exception {
+		
+		byte[] rel = relatorioService.relHorarioSemana(request, horarioRel);
 				
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE)
