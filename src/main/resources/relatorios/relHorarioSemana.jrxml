@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relFrequencia" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7837dfcb-0f91-42c1-85b7-cd5cc8c7e53f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="color1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{1}.equals($F{dia}) || $P{1}.equals($F{dia2}) || $P{1}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color2">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{2}.equals($F{dia}) || $P{2}.equals($F{dia2}) || $P{2}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color3">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{3}.equals($F{dia}) || $P{3}.equals($F{dia2}) || $P{3}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color4">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{4}.equals($F{dia}) || $P{4}.equals($F{dia2}) || $P{4}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color5">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{5}.equals($F{dia}) || $P{5}.equals($F{dia2}) || $P{5}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color6">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{6}.equals($F{dia}) || $P{6}.equals($F{dia2}) || $P{6}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color7">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{7}.equals($F{dia}) || $P{7}.equals($F{dia2}) || $P{7}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color8">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{8}.equals($F{dia}) || $P{8}.equals($F{dia2}) || $P{8}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color9">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{9}.equals($F{dia}) || $P{9}.equals($F{dia2}) || $P{9}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color10">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{10}.equals($F{dia}) || $P{10}.equals($F{dia2}) || $P{10}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color11">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{11}.equals($F{dia}) || $P{11}.equals($F{dia2}) || $P{11}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color12">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{12}.equals($F{dia}) || $P{12}.equals($F{dia2}) || $P{12}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color13">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{13}.equals($F{dia}) || $P{13}.equals($F{dia2}) || $P{13}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color14">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{14}.equals($F{dia}) || $P{14}.equals($F{dia2}) || $P{14}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color15">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{15}.equals($F{dia}) || $P{15}.equals($F{dia2}) || $P{15}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color16">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{16}.equals($F{dia}) || $P{16}.equals($F{dia2}) || $P{16}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color17">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{17}.equals($F{dia}) || $P{17}.equals($F{dia2}) || $P{17}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color18">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{18}.equals($F{dia}) || $P{18}.equals($F{dia2}) || $P{18}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color19">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{19}.equals($F{dia}) || $P{19}.equals($F{dia2}) || $P{19}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color20">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{20}.equals($F{dia}) || $P{20}.equals($F{dia2}) || $P{20}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color21">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{21}.equals($F{dia}) || $P{21}.equals($F{dia2}) || $P{21}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color22">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{22}.equals($F{dia}) || $P{22}.equals($F{dia2}) || $P{22}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color23">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{23}.equals($F{dia}) || $P{23}.equals($F{dia2}) || $P{23}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color24">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{24}.equals($F{dia}) || $P{24}.equals($F{dia2}) || $P{24}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color25">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{25}.equals($F{dia}) || $P{25}.equals($F{dia2}) || $P{25}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color26">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{26}.equals($F{dia}) || $P{26}.equals($F{dia2}) || $P{26}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color27">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{27}.equals($F{dia}) || $P{27}.equals($F{dia2}) || $P{27}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color28">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{28}.equals($F{dia}) || $P{28}.equals($F{dia2}) || $P{28}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color29">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{29}.equals($F{dia}) || $P{29}.equals($F{dia2}) || $P{29}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color30">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{30}.equals($F{dia}) || $P{30}.equals($F{dia2}) || $P{30}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<style name="color31">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{31}.equals($F{dia}) || $P{31}.equals($F{dia2}) || $P{31}.equals($F{dia3})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F7579C"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="ano" class="java.lang.Integer"/>
+	<parameter name="mes" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Fevereiro"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="horario" class="java.lang.String"/>
+	<field name="segunda" class="java.lang.String"/>
+	<field name="terca" class="java.lang.String"/>
+	<field name="quarta" class="java.lang.String"/>
+	<field name="quinta" class="java.lang.String"/>
+	<field name="sexta" class="java.lang.String"/>
+	<group name="horario" keepTogether="true" preventOrphanFooter="true">
+		<groupExpression><![CDATA[$F{horario}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="0" y="0" width="102" height="20" backcolor="#F0EDED" uuid="17369e4a-7992-4247-b4bf-ab212cd03062"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{horario}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="102" y="0" width="140" height="20" backcolor="#EBE6E6" uuid="c09625b5-f33b-498b-bbff-5be4b839ca00"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Segunda]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="242" y="0" width="140" height="20" backcolor="#EBE6E6" uuid="229b8107-1181-4abf-b343-b1d094ffefd4"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Terça]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="382" y="0" width="140" height="20" backcolor="#EBE6E6" uuid="542ffc1e-4503-48ed-a84f-6c4ecbf36371"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quarta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="522" y="0" width="140" height="20" backcolor="#EBE6E6" uuid="0c28043d-6288-4021-940f-bc2e97f37319"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quinta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="662" y="0" width="140" height="20" backcolor="#EBE6E6" uuid="c3c04064-bd3b-497f-a55c-08e08080757d"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sexta]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<image>
+				<reportElement x="371" y="0" width="44" height="58" uuid="e7c528f3-5903-4fa8-8d36-c6482ea75223"/>
+				<imageExpression><![CDATA["https://firebasestorage.googleapis.com/v0/b/prysmabr.appspot.com/o/akademy%2FestacaoPilates.jpg?alt=media&token=297b912d-09f4-4912-bd33-e56c8b8f2f61"]]></imageExpression>
+			</image>
+			<textField evaluationTime="Page" pattern="dd/MM/yyyy">
+				<reportElement x="700" y="40" width="100" height="20" uuid="87ec688d-a857-412b-9ae5-ea4cb01b9b08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="20" backcolor="#D4D4D4" uuid="6f30f288-4526-4cb7-8433-e5da0900730d"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Horários" +" - " + $P{mes} + "/" + $P{ano}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="b8a343ec-761c-4d4c-8def-7027acee383a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f7e34b1-2f91-415d-8168-8e0ad577f4a1"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[segunda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="293" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="d9626a2c-72b6-4d49-87cb-a96e29e99f06">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0464e121-c9e8-414f-acc6-8692fe31c610"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[terca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="268" height="1" uuid="974a04c0-f086-4125-abc3-3e887bd3ebd2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47570393-c6cf-4491-84e3-4ac4c945120f"/>
+				</reportElement>
+				<text><![CDATA[quarta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="268" y="0" width="267" height="1" backcolor="#EBE6E6" uuid="d21b3d45-d40c-4509-a00b-66b3b56b1423">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="191fb121-dc31-4962-ad57-eab40abe198f"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[quinta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="535" y="0" width="267" height="1" backcolor="#EBE6E6" uuid="3798f56c-fb88-4a2e-af59-bb9ba4756375">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3cf0533f-8b9d-4655-b388-2b10da74c1f3"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[sexta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="114" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="9a3f7d1f-62c0-4be4-a3a9-8e6baf4aef6f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c1d83b2a-d4af-4d61-9f3d-0b457879ee36"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[segunda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="152" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="9fe9b6c2-aff6-4747-9db9-981dd871a715">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70ae053b-c908-4249-bdba-f01274ab1c0d"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[segunda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="144" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="7bb9c94f-0de5-4b00-8187-d8f9b00c2156">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbef7ed8-982b-4aaa-9adb-7ec5303a5d05"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[segunda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="162" height="1" uuid="1b6a49b2-f035-4b12-a694-45dbb05d46c0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cdf4a36-10f8-48a7-957a-ad34f14c6a8e"/>
+				</reportElement>
+				<text><![CDATA[segunda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="162" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="c387a494-b869-455f-b17b-faa4d4c2b032">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0694ad18-68f2-401c-a474-e27223634e92"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[terca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="322" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="e3e07eca-a6fd-407b-ad65-fc660f1d785e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3d8bca8-220b-469d-8030-7a470b896f7e"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[quarta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="482" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="d844ed22-076c-4d60-b4e4-3752aa76f951">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65bfdbf3-e5c5-4576-a2a0-d321bd4eeb9d"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[quinta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="642" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="e8eecb4f-c68d-4405-9ad4-2b261842ee3e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b6dde1a-05b8-48be-ad28-0258366500ee"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[sexta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="102" y="0" width="140" height="15" uuid="789cf150-3325-4f33-b9fa-dcdecd3136eb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cdf4a36-10f8-48a7-957a-ad34f14c6a8e"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{segunda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="140" height="15" uuid="3c781e4c-68f0-4921-96dc-5752c80952af">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0694ad18-68f2-401c-a474-e27223634e92"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{terca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="140" height="15" uuid="2243ab12-d078-4223-9069-73cde5088d00">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3d8bca8-220b-469d-8030-7a470b896f7e"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quarta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="0" width="140" height="15" uuid="e8dfb081-7d0a-4523-aa4a-69051d00fc9a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65bfdbf3-e5c5-4576-a2a0-d321bd4eeb9d"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quinta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="662" y="0" width="140" height="15" uuid="3c14ea23-b04e-454e-aea5-f77b7d588472">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b6dde1a-05b8-48be-ad28-0258366500ee"/>
+				</reportElement>
+				<box leftPadding="3" rightPadding="3">
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="660" y="0" width="90" height="20" uuid="80789ef9-d1e2-4c13-94ff-75c0c457bc15"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="660" height="20" uuid="c6d7a039-1046-4541-941c-f7232ec77db6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Ikytus - Sistemas]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="750" y="0" width="50" height="20" uuid="cf205cc0-0e35-4e7e-a6ef-f245a8adc676"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
