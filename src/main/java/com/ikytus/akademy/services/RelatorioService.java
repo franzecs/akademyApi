@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import com.ikytus.akademy.domain.Turma;
 import com.ikytus.akademy.domain.User;
 import com.ikytus.akademy.domain.models.Dia;
 import com.ikytus.akademy.domain.models.Frequencia;
+import com.ikytus.akademy.domain.models.HorarioRel;
 import com.ikytus.akademy.security.UserService;
 
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -228,6 +230,30 @@ public class RelatorioService {
 
 		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
 				new JRBeanCollectionDataSource(itens));
+
+		return JasperExportManager.exportReportToPdf(jasperPrint);
+	}
+	
+	public byte[] relHorarioSemana(HttpServletRequest request, List<HorarioRel> horarioRel) throws Exception {
+
+		System.out.println("chegou o horariosemana");
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+
+		int mes = cal.get(Calendar.MONTH) + 1;
+		anoAtual = cal.get(Calendar.YEAR);
+		mesAtual = geraMes(mes);
+		
+		Map<String, Object> parametros = new HashMap<>();
+		parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+		parametros.put("mes", mesAtual);
+		parametros.put("ano", anoAtual);
+					
+		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relHorarioSemana.jasper");
+
+		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
+				new JRBeanCollectionDataSource(horarioRel));
 
 		return JasperExportManager.exportReportToPdf(jasperPrint);
 	}
