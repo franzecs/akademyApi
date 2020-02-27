@@ -250,7 +250,7 @@ public class RelatorioService {
 		parametros.put("mes", mesAtual);
 		parametros.put("ano", anoAtual);
 					
-		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relHorarioSemana.jasper");
+		InputStream inputStream = this.getClass().getResourceAsStream("/relatorios/relHorarioSemanaVertical.jasper");
 
 		JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, parametros,
 				new JRBeanCollectionDataSource(horarioRel));
