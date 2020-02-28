@@ -72,7 +72,7 @@ public class User implements Serializable{
 	private PlanoDTO plano;
 	private String obs;
 	
-	private Integer comissao;
+	private double comissao;
 	
 	@Transient
 	private String dtr;
@@ -288,11 +288,11 @@ public class User implements Serializable{
 		this.dtr = dtr;
 	}
 	
-	public Integer getComissao() {
+	public double getComissao() {
 		return comissao;
 	}
 
-	public void setComissao(Integer comissao) {
+	public void setComissao(double comissao) {
 		this.comissao = comissao;
 	}
 
