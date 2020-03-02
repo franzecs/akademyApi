@@ -223,7 +223,7 @@
 						<rightPen lineWidth="1.0" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isBold="true"/>
+						<font size="9" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{horario}]]></textFieldExpression>
 				</textField>
@@ -299,22 +299,12 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="60" splitType="Stretch">
-			<image>
-				<reportElement x="258" y="1" width="44" height="58" uuid="e7c528f3-5903-4fa8-8d36-c6482ea75223"/>
-				<imageExpression><![CDATA["https://firebasestorage.googleapis.com/v0/b/prysmabr.appspot.com/o/akademy%2FestacaoPilates.jpg?alt=media&token=297b912d-09f4-4912-bd33-e56c8b8f2f61"]]></imageExpression>
-			</image>
-			<textField evaluationTime="Page" pattern="dd/MM/yyyy">
-				<reportElement x="455" y="40" width="100" height="20" uuid="87ec688d-a857-412b-9ae5-ea4cb01b9b08"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="4" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="21" splitType="Stretch">
+		<band height="73" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#D4D4D4" uuid="6f30f288-4526-4cb7-8433-e5da0900730d"/>
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="0" y="53" width="555" height="20" backcolor="#D4D4D4" uuid="6f30f288-4526-4cb7-8433-e5da0900730d"/>
 				<box>
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -326,100 +316,24 @@
 				</textElement>
 				<textFieldExpression><![CDATA["Horários" +" - " + $P{mes} + "/" + $P{ano}]]></textFieldExpression>
 			</textField>
+			<textField evaluationTime="Page" pattern="dd/MM/yyyy">
+				<reportElement x="455" y="31" width="100" height="20" uuid="87ec688d-a857-412b-9ae5-ea4cb01b9b08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="261" y="0" width="40" height="51" uuid="e7c528f3-5903-4fa8-8d36-c6482ea75223"/>
+				<imageExpression><![CDATA["https://firebasestorage.googleapis.com/v0/b/prysmabr.appspot.com/o/akademy%2FestacaoPilates.jpg?alt=media&token=297b912d-09f4-4912-bd33-e56c8b8f2f61"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="1" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="116" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="b8a343ec-761c-4d4c-8def-7027acee383a">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f7e34b1-2f91-415d-8168-8e0ad577f4a1"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[segunda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="271" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="d9626a2c-72b6-4d49-87cb-a96e29e99f06">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0464e121-c9e8-414f-acc6-8692fe31c610"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[terca]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="268" height="1" uuid="974a04c0-f086-4125-abc3-3e887bd3ebd2">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47570393-c6cf-4491-84e3-4ac4c945120f"/>
-				</reportElement>
-				<text><![CDATA[quarta]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="246" y="0" width="267" height="1" backcolor="#EBE6E6" uuid="d21b3d45-d40c-4509-a00b-66b3b56b1423">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="191fb121-dc31-4962-ad57-eab40abe198f"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[quinta]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="92" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="9a3f7d1f-62c0-4be4-a3a9-8e6baf4aef6f">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c1d83b2a-d4af-4d61-9f3d-0b457879ee36"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[segunda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="130" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="9fe9b6c2-aff6-4747-9db9-981dd871a715">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="70ae053b-c908-4249-bdba-f01274ab1c0d"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[segunda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="122" y="0" width="100" height="1" backcolor="#EBE6E6" uuid="7bb9c94f-0de5-4b00-8187-d8f9b00c2156">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbef7ed8-982b-4aaa-9adb-7ec5303a5d05"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[segunda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="162" height="1" uuid="1b6a49b2-f035-4b12-a694-45dbb05d46c0">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cdf4a36-10f8-48a7-957a-ad34f14c6a8e"/>
-				</reportElement>
-				<text><![CDATA[segunda]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="140" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="c387a494-b869-455f-b17b-faa4d4c2b032">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0694ad18-68f2-401c-a474-e27223634e92"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[terca]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="300" y="0" width="160" height="1" backcolor="#EBE6E6" uuid="e3e07eca-a6fd-407b-ad65-fc660f1d785e">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3d8bca8-220b-469d-8030-7a470b896f7e"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[quarta]]></text>
-			</staticText>
-		</band>
+		<band height="1" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="16" splitType="Stretch">
 			<textField>
-				<reportElement stretchType="RelativeToTallestObject" x="65" y="0" width="98" height="15" uuid="789cf150-3325-4f33-b9fa-dcdecd3136eb">
+				<reportElement x="65" y="0" width="98" height="15" uuid="789cf150-3325-4f33-b9fa-dcdecd3136eb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cdf4a36-10f8-48a7-957a-ad34f14c6a8e"/>
 				</reportElement>
 				<box leftPadding="3" rightPadding="3">
@@ -491,7 +405,7 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="3" splitType="Stretch"/>
+		<band height="12" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="21" splitType="Stretch">
