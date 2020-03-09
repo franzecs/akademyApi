@@ -91,7 +91,6 @@ public class UserService {
 	}
 	
 	public User createOrUpdate (User user) {
-		user.setNome(user.getNome().toUpperCase());
 		return userRepository.save(user);
 	}
 						
