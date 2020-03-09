@@ -86,7 +86,7 @@ public class RelatorioService {
 			}
 
 			for (User aluno : alunosInstrutor) {
-				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome());
+				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome(), 0);
 				for (Turma turma : aluno.getTurmas()) {
 					if (turma.getInstrutor().getId().equals(I.getId())) {
 						if (f.getHorario() == null) {
@@ -101,7 +101,7 @@ public class RelatorioService {
 								}
 							} else {
 								Frequencia f2 = new Frequencia(I.getNome(), turma.getHorario(), turma.getDia(), null,
-										null, aluno.getNome());
+										null, aluno.getNome(), 0);
 								freqTemp.addAll(Arrays.asList(f2));
 							}
 						}
@@ -153,7 +153,7 @@ public class RelatorioService {
 			}
 
 			for (User aluno : alunosInstrutor) {
-				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome());
+				Frequencia f = new Frequencia(I.getNome(), null, null, null, null, aluno.getNome(), (new Date().getYear() - aluno.getDataNascimento().getYear()));
 				for (Turma turma : aluno.getTurmas()) {
 					if (turma.getInstrutor().getId().equals(I.getId())) {
 						if (f.getHorario() == null) {
@@ -168,7 +168,7 @@ public class RelatorioService {
 								}
 							} else {
 								Frequencia f2 = new Frequencia(I.getNome(), turma.getHorario(), turma.getDia(), null,
-										null, aluno.getNome());
+										null, aluno.getNome(), (new Date().getYear() - aluno.getDataNascimento().getYear()));
 								freqTemp.addAll(Arrays.asList(f2));
 							}
 						}
