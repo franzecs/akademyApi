@@ -18,10 +18,11 @@ public class Frequencia implements Serializable{
 	private int dia2;
 	private int dia3;
 	private String aluno;
+	private int idade;
 	
 	public Frequencia(){}
 	
-	public Frequencia(String instrutor, String horario, DiaEnum diaSemana, DiaEnum diaSemana2, DiaEnum diaSemana3, String aluno) {
+	public Frequencia(String instrutor, String horario, DiaEnum diaSemana, DiaEnum diaSemana2, DiaEnum diaSemana3, String aluno, int idade) {
 		super();
 		this.instrutor = instrutor;
 		this.horario = horario;
@@ -30,6 +31,7 @@ public class Frequencia implements Serializable{
 		this.dia = intDia(diaSemana);
 		this.dia2 = intDia(diaSemana2);
 		this.dia3 = intDia(diaSemana3);
+		this.idade = idade;
 	}
 	
 	private int intDia(DiaEnum dia) {
@@ -128,6 +130,14 @@ public class Frequencia implements Serializable{
 
 	public void setDia3(int dia3) {
 		this.dia3 = dia3;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
 	}
 
 	@Override
