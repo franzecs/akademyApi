@@ -70,6 +70,9 @@ public class User implements Serializable{
 	private String peso;
 	private String diaPagamento;
 	private PlanoDTO plano;
+	
+	@DBRef
+	private Plano plainer;
 	private String obs;
 	
 	private double comissao;
@@ -270,6 +273,14 @@ public class User implements Serializable{
 
 	public void setPlano(PlanoDTO plano) {
 		this.plano = plano;
+	}
+	
+	public Plano getPlainer() {
+		return plainer;
+	}
+
+	public void setPlainer(Plano plainer) {
+		this.plainer = plainer;
 	}
 
 	public String getObs() {
