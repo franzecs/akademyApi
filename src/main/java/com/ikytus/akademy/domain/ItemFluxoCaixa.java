@@ -27,6 +27,7 @@ public class ItemFluxoCaixa implements Serializable{
 	private String descricao;
 	private Double valor;
 	private String status;
+	private String formaPagamento;
 			
 	public ItemFluxoCaixa() {}
 			
@@ -106,6 +107,14 @@ public class ItemFluxoCaixa implements Serializable{
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public String getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(String formaPagamento) {
+		this.formaPagamento = formaPagamento;
 	}
 
 	@Override
