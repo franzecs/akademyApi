@@ -2,9 +2,7 @@ package com.ikytus.akademy.domain.models;
 
 import java.io.Serializable;
 
-import com.ikytus.akademy.domain.User;
-
-public class InstrutorBreaf extends User implements Serializable{
+public class InstrutorBreaf implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
 	private String id;
