@@ -8,15 +8,17 @@ public class InstrutorBreaf implements Serializable{
 	private String id;
 	private String nome;
 	private double comissao;
+	private String type;
 	
 	
 	public InstrutorBreaf() {
 	}
 	
-	public InstrutorBreaf(String id, String nome, double comissao) {
+	public InstrutorBreaf(String id, String nome, double comissao, String type) {
 		this.id = id;
 		this.nome = nome;
 		this.comissao = comissao;
+		this.type = type;
 	}
 
 	public String getId() {
@@ -41,6 +43,14 @@ public class InstrutorBreaf implements Serializable{
 
 	public void setComissao(double comissao) {
 		this.comissao = comissao;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
