@@ -76,6 +76,7 @@ public class User implements Serializable{
 	private String obs;
 	
 	private double comissao;
+	private String type;
 	
 	@Transient
 	private String dtr;
@@ -305,6 +306,14 @@ public class User implements Serializable{
 
 	public void setComissao(double comissao) {
 		this.comissao = comissao;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
