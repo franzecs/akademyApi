@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.ikytus.akademy.domain.User;
+import com.ikytus.akademy.domain.Plano;
 import com.ikytus.akademy.domain.enums.Perfil;
 import com.ikytus.akademy.domain.models.Endereco;
 
@@ -16,11 +17,11 @@ public class UserDTO implements Serializable {
 	private String nome;
 	private String email;
 	private Set<Integer> perfis = new HashSet<>();
-    private boolean isAtivo;
+        private boolean isAtivo;
 	private Endereco endereco;
-	private PlanoDTO plano;
-    private EmpresaDTO empresa;
-    private String url_perfil;
+	private Plano plano;
+        private EmpresaDTO empresa;
+        private String url_perfil;
 	
 	public UserDTO() {
 	}
