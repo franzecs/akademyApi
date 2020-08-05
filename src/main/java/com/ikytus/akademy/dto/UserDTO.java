@@ -93,11 +93,11 @@ public class UserDTO implements Serializable {
 		this.empresa = empresa;
 	}
 	
-	public PlanoDTO getPlano() {
+	public Plano getPlano() {
 		return plano;
 	}
 
-	public void setPlano(PlanoDTO plano) {
+	public void setPlano(Plano plano) {
 		this.plano = plano;
 	}
 
