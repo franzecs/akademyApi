@@ -32,7 +32,7 @@ public class UserDTO implements Serializable {
 		this.isAtivo = user.isAtivo();
 		this.endereco = user.getEndereco();
 		this.empresa = user.getEmpresa();
-		this.plano = user.getPlano();
+		this.plano = user.getPlainer();
 		this.url_perfil = user.getUrl_perfil();
 	}
 
