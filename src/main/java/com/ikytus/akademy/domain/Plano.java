@@ -16,15 +16,17 @@ public class Plano implements Serializable{
 	private String nome;
 	private Double valor;
 	private String descricao;
+	private String tipo;
 	private EmpresaDTO empresa;
 		
 	public Plano() {}
 		
-	public Plano(String id, String nome, Double valor, String descricao, EmpresaDTO empresa) {
+	public Plano(String id, String nome, Double valor, String descricao, String tipo, EmpresaDTO empresa) {
 		this.id = id;
 		this.nome = nome;
 		this.valor = valor;
 		this.descricao = descricao;
+		this.tipo = tipo;
 		this.empresa = empresa;
 	}
 	
@@ -58,6 +60,14 @@ public class Plano implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public EmpresaDTO getEmpresa() {
