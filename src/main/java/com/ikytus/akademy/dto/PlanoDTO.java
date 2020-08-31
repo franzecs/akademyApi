@@ -11,6 +11,7 @@ public class PlanoDTO implements Serializable{
 	private String nome;
 	private Double valor;
 	private String descricao;
+	private String tipo;
 	
 	public PlanoDTO() {}
 		
@@ -19,6 +20,7 @@ public class PlanoDTO implements Serializable{
 		this.nome = plano.getNome();
 		this.valor = plano.getValor();
 		this.descricao = plano.getDescricao();
+		this.tipo = plano.getTipo();
 	}
 	
 	public String getId() {
@@ -51,5 +53,13 @@ public class PlanoDTO implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 }
