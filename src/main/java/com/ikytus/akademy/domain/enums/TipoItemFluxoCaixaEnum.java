@@ -4,7 +4,8 @@ public enum TipoItemFluxoCaixaEnum {
 	ENTRADA(1,"Entrada"),
 	SAIDA(2,"Saida"),
 	PAGAMENTOPROFESSOR(3,"Pagamento Professor"),
-	DESPESASFIXAS(4,"Despesas Fixas");
+	DESPESASFIXAS(4,"Despesas Fixas"),
+	MENSALIDADE(5,"Mensalidade");
 	
 	private int cod;
 	private String descricao;
