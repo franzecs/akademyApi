@@ -28,6 +28,8 @@ public class ItemFluxoCaixa implements Serializable{
 	private Double valor;
 	private String status;
 	private String formaPagamento;
+	private String idOrigem;
+	private String modalidadePlano;
 			
 	public ItemFluxoCaixa() {}
 			
@@ -116,7 +118,24 @@ public class ItemFluxoCaixa implements Serializable{
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
+	
+	public String getIdOrigem() {
+		return idOrigem;
+	}
 
+	public void setIdOrigem(String idOrigem) {
+		this.idOrigem = idOrigem;
+	}
+	
+	
+	public String getModalidadePlano() {
+		return modalidadePlano;
+	}
+
+	public void setModalidadePlano(String modalidadePlano) {
+		this.modalidadePlano = modalidadePlano;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
