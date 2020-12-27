@@ -30,6 +30,7 @@ public class ItemFluxoCaixa implements Serializable{
 	private String formaPagamento;
 	private String idOrigem;
 	private String modalidadePlano;
+	private String idInstrutor;
 			
 	public ItemFluxoCaixa() {}
 			
@@ -134,6 +135,13 @@ public class ItemFluxoCaixa implements Serializable{
 
 	public void setModalidadePlano(String modalidadePlano) {
 		this.modalidadePlano = modalidadePlano;
+	}
+	
+	public String getIdInstrutor() {
+		return idInstrutor;
+	}
+	public void setIdInstrutor(String idInstrutor) {
+		this.idInstrutor = idInstrutor;
 	}
 	
 	@Override
