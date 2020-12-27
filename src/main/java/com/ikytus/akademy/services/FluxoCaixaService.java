@@ -31,7 +31,8 @@ public class FluxoCaixaService {
 	public FluxoCaixa findById(String id, String empresaId) {
 		Optional<FluxoCaixa> fluxo = fluxoCaixaRepository.findById(id);
 
-		List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDescricaoAsc(empresaId, id);
+		//List<ItemFluxoCaixa> itens = itemRepository.findByEmpresaIdAndFluxoCaixaIdOrderByDescricaoAsc(empresaId, id);
+		List<ItemFluxoCaixa> itens = itemRepository.findByFluxoCaixaIdOrderByDescricaoAsc(id);
 		fluxo.get().getItens().addAll(itens);
 		return fluxo.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
