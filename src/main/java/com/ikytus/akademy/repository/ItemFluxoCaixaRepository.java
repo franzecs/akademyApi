@@ -20,7 +20,7 @@ public interface ItemFluxoCaixaRepository extends MongoRepository<ItemFluxoCaixa
 	
 	List<ItemFluxoCaixa> findByEmpresaIdAndFluxoCaixaIdOrderByDiaAsc (String empresaId, String fluxoCaixaId);
 	
-	List<ItemFluxoCaixa> findByFluxoCaixaIdOrderByDiaAsc (String fluxoCaixaId);
+	List<ItemFluxoCaixa> findByFluxoCaixaIdOrderByDescricaoAsc (String fluxoCaixaId);
 	
 	List<ItemFluxoCaixa> findByEmpresaIdAndFluxoCaixaIdOrderByDescricaoAsc (String empresaId, String fluxoCaixaId);
 	
